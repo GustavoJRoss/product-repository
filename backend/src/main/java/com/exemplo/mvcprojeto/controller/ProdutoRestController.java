@@ -25,4 +25,9 @@ public class ProdutoRestController {
     public Produto criar(@RequestBody Produto produto) {
         return produtoRepository.save(produto);
     }
+
+    @DeleteMapping("/{id}")
+    public void deletar(@PathVariable Long id) {
+        produtoRepository.deleteById(id);
+    }
 }

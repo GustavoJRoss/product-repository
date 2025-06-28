@@ -59,3 +59,17 @@ button:hover {
   border: 1px solid #ddd;
   border-radius: 6px;
 }
+
+.delete-button {
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  padding: 8px 10px;
+  border-radius: 4px;
+  margin-top: 10px;
+  cursor: pointer;
+}
+
+.delete-button:hover {
+  background-color: #b02a37;
+}

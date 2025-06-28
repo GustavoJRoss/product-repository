@@ -31,6 +31,15 @@ function App() {
     setFormProduto((prev) => ({ ...prev, [name]: value }));
   };
 
+  const handleDeleteProduto = async (id) => {
+    try {
+      await axios.delete(`/api/produtos/${id}`);
+      setProdutos(produtos.filter(p => p.id !== id));
+    } catch (error) {
+      console.error('Erro ao deletar produto:', error);
+    }
+  };
+
   const handleCategoriaChange = (e) => {
     setNovaCategoria(e.target.value);
   };
@@ -132,6 +141,12 @@ function App() {
               <h3>{p.nome}</h3>
               <p><strong>Preço:</strong> R$ {parseFloat(p.preco).toFixed(2)}</p>
               <p><strong>Categoria:</strong> {p.categoria?.nome || 'Sem categoria'}</p>
+              <button
+                onClick={() => handleDeleteProduto(p.id)}
+                className="delete-button"
+              >
+                Excluir
+              </button>
             </div>
           ))}
         </div>
